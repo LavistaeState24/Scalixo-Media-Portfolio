@@ -126,6 +126,7 @@ if (!reduced && document.body.dataset.page !== 'web') {
 /* ───────── Video hover-play ───────── */
 document.addEventListener('DOMContentLoaded', function () {
   const reelCards = document.querySelectorAll('.reel-card');
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
 
   reelCards.forEach(card => {
     const video = card.querySelector('.reel-video');
@@ -136,12 +137,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!video) return;
 
-    // Hover play (desktop)
+    /* ═══════════════════════════════════════════════════
+       0. MOBILE AUTOPLAY SETUP
+       Mute by default so the browser allows autoplay,
+       and update the mute icon to match.
+    ═══════════════════════════════════════════════════ */
+    if (isMobile) {
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+
+      if (muteIcon) {
+        muteIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        `;
+      }
+
+      // Autoplay / pause based on viewport visibility
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            video.play().catch(() => { });
+            if (playOverlay) {
+              playOverlay.style.opacity = '0';
+              playOverlay.style.pointerEvents = 'none';
+            }
+          } else {
+            video.pause();
+            if (playOverlay) {
+              playOverlay.style.opacity = '1';
+              playOverlay.style.pointerEvents = 'auto';
+            }
+          }
+        });
+      }, {
+        threshold: [0, 0.6, 1.0],
+        rootMargin: '0px 0px -10% 0px',
+      });
+
+      observer.observe(card);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       Desktop: hover to play
+    ═══════════════════════════════════════════════════ */
     card.addEventListener('mouseenter', () => {
       if (window.innerWidth >= 768) {
         video.play().catch(() => { });
-        playOverlay.style.opacity = '0';
-        playOverlay.style.pointerEvents = 'none';
+        if (playOverlay) {
+          playOverlay.style.opacity = '0';
+          playOverlay.style.pointerEvents = 'none';
+        }
       }
     });
 
@@ -149,52 +198,64 @@ document.addEventListener('DOMContentLoaded', function () {
       if (window.innerWidth >= 768) {
         video.pause();
         video.currentTime = 0;
-        playOverlay.style.opacity = '1';
-        playOverlay.style.pointerEvents = 'auto';
+        if (playOverlay) {
+          playOverlay.style.opacity = '1';
+          playOverlay.style.pointerEvents = 'auto';
+        }
       }
     });
 
-    // Click play (mobile)
-    playOverlay.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (video.paused) {
-        video.play().catch(() => { });
-        playOverlay.style.opacity = '0';
-        playOverlay.style.pointerEvents = 'none';
-      } else {
-        video.pause();
-        playOverlay.style.opacity = '1';
-        playOverlay.style.pointerEvents = 'auto';
-      }
-    });
+    /* ═══════════════════════════════════════════════════
+       Tap overlay to pause/resume (mobile only)
+    ═══════════════════════════════════════════════════ */
+    if (playOverlay) {
+      playOverlay.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) {
+          video.play().catch(() => { });
+          playOverlay.style.opacity = '0';
+          playOverlay.style.pointerEvents = 'none';
+        } else {
+          video.pause();
+          playOverlay.style.opacity = '1';
+          playOverlay.style.pointerEvents = 'auto';
+        }
+      });
+    }
 
-    // Mute toggle
-    muteBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      video.muted = !video.muted;
+    /* ═══════════════════════════════════════════════════
+       Mute toggle (still works on both)
+    ═══════════════════════════════════════════════════ */
+    if (muteBtn && muteIcon) {
+      muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
 
-      if (video.muted) {
-        muteIcon.innerHTML = `
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-            `;
-      } else {
-        muteIcon.innerHTML = `
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5z" />
-            `;
-      }
-    });
+        if (video.muted) {
+          muteIcon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          `;
+        } else {
+          muteIcon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5z" />
+          `;
+        }
+      });
+    }
 
-    // Progress bar
+    /* ═══════════════════════════════════════════════════
+       Progress bar
+    ═══════════════════════════════════════════════════ */
     video.addEventListener('timeupdate', () => {
       if (video.duration) {
         const pct = (video.currentTime / video.duration) * 100;
-        progressBar.style.width = pct + '%';
+        if (progressBar) progressBar.style.width = pct + '%';
       }
     });
 
     video.addEventListener('ended', () => {
-      progressBar.style.width = '0%';
+      if (progressBar) progressBar.style.width = '0%';
     });
   });
 });
