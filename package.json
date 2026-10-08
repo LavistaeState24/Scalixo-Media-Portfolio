@@ -1,11 +1,13 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.6.1",
-    "postcss": "^8.5.28",
-    "tailwindcss": "^3.4.19"
-  },
+  "name": "scalixo",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "build:css": "tailwindcss -i ./input.css -o ./tailwind.css",
-    "watch:css": "tailwindcss -i ./input.css -o ./tailwind.css --watch"
+    "css:build": "tailwindcss -i ./input.css -o ./tailwind.css --minify",
+    "css:watch": "tailwindcss -i ./input.css -o ./tailwind.css --watch",
+    "build": "npm run css:build"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
   }
 }
