@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth bg-ink; }
+  body { @apply bg-ink font-sans text-white antialiased; }
+}
+
+@layer components {
+  /* Cursor */
+  .cursor-ring {
+    @apply pointer-events-none fixed left-0 top-0 z-[999] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/60 transition-transform duration-200 ease-out md:block;
+  }
+  .cursor-dot {
+    @apply pointer-events-none fixed left-0 top-0 z-[1000] hidden h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent transition-transform duration-75 ease-out md:block;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Watermark */
+  .watermark {
+    @apply pointer-events-none select-none font-display leading-none text-white/[0.035];
+  }
+
+  /* Service cards */
+  .service-card .service-media {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .service-card:hover .service-media {
+    @apply scale-105;
+  }
+  .service-card .service-media img {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .service-card:hover .service-media img {
+    @apply scale-110;
+  }
+
+  /* Post cards */
+  .post-card {
+    @apply relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.02];
+  }
+  .post-card img {
+    @apply h-full w-full object-cover transition-transform duration-700 ease-out;
+  }
+  .post-card:hover img {
+    @apply scale-110;
+  }
+  .post-overlay {
+    @apply absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 opacity-0 transition-opacity duration-500;
+  }
+  .post-card:hover .post-overlay {
+    @apply opacity-100;
+  }
+
+  /* Reel cards */
+  .reel-card .reel-video {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .reel-card:hover .reel-video {
+    @apply scale-105;
+  }
+  .play-overlay.hidden {
+    @apply pointer-events-none opacity-0;
+  }
+
+  /* TOC links (privacy page) */
+  .toc-link.active {
+    @apply border-l-2 border-accent pl-4 text-accent;
+  }
+
+  /* CTA button hover fill */
+  .cta-btn {
+    @apply relative overflow-hidden;
+  }
+  .cta-btn::before {
+    content: "";
+    @apply absolute inset-0 -z-0 translate-y-full bg-accent transition-transform duration-500 ease-out;
+  }
+  .cta-btn:hover::before {
+    @apply translate-y-0;
+  }
+}
+
+@layer utilities {
+  .mix-blend-difference {
+    mix-blend-mode: difference;
+  }
+}
