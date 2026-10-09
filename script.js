@@ -811,5 +811,11 @@ document.addEventListener("DOMContentLoaded", () => {
     marquee.addEventListener("mouseleave", () => { marquee.style.animationPlayState = "running"; });
   }
 
+  gsap.to('.client-marquee', {
+  xPercent: -50,
+  duration: 40,
+  repeat: -1,
+  ease: 'none',
+});
 
 });

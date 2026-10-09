@@ -15,7 +15,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 </head>
 
 <body class="font-sans">
@@ -24,12 +23,12 @@
   <div class="cursor-ring"></div>
   <div class="cursor-dot"></div>
 
-  <!-- Progress -->
-  <div class="progress-bar fixed top-0 left-0 z-[60] h-[2px] w-full bg-accent"></div>
+  <!-- Scroll progress (was .progress-bar, renamed to avoid clashing with reel bars) -->
+  <div class="scroll-progress fixed top-0 left-0 z-[60] h-[2px] w-full bg-accent"></div>
 
   <!-- ══════════ HEADER ══════════ -->
   <header id="siteHeader"
-    class=" inset-x-0 top-0 z-50 bg-transparent mix-blend-difference transition-colors duration-300">
+    class="inset-x-0 top-0 z-50 bg-transparent mix-blend-difference transition-colors duration-300">
     <div class="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-6 md:px-10 md:py-7">
 
       <a href="#home" class="group relative flex items-center gap-3">
@@ -56,7 +55,7 @@
       </button>
     </div>
 
-    <!-- Mobile menu (solid background, above page content) -->
+    <!-- Mobile menu -->
     <div id="mobileMenu"
       class="pointer-events-none bg-ink inset-0 z-40 flex flex-col justify-center gap-3 px-8 opacity-0 transition-opacity duration-500 md:hidden">
       <a href="#services" class="mobile-link font-display text-2xl uppercase text-white">Services</a>
@@ -83,17 +82,14 @@
       <div class="relative mx-auto flex w-full max-w-[1500px] flex-1 flex-col justify-center">
 
         <h1 class="font-display text-[clamp(2.4rem,7vw,5.5rem)] uppercase leading-[0.95] mt-8">
-
           <span class="block animate-[fadeUp_0.9s_ease-out_both] [animation-delay:150ms]">
             Grow your brand
           </span>
-
           <span class="block text-white animate-[fadeUp_0.9s_ease-out_both] [animation-delay:350ms]">
-            with strategy, content,
+            with strategy,content,
           </span>
-
           <span class="block text-white animate-[fadeUp_0.9s_ease-out_both] [animation-delay:550ms]">
-            and performance marketing.
+            and Performance Marketing.
           </span>
         </h1>
 
@@ -105,18 +101,6 @@
             <span class="relative z-10 transition-transform duration-500 group-hover:translate-x-0.5">→</span>
           </a>
         </div>
-      </div>
-
-      <div class="relative mx-auto w-full max-w-[1500px] animate-[fadeIn_1s_ease-out_both] [animation-delay:1000ms]">
-        <!-- <div
-          class="flex flex-col gap-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/35 md:flex-row md:items-center md:justify-end">
-          <span class="flex items-center gap-3">
-            <span class="scroll-hint transition-colors hover:text-accent mt-10">Scroll</span>
-            <span class="relative block h-8 w-px overflow-hidden bg-white/20">
-              <span class="animate-scroll-line absolute inset-x-0 top-0 h-3 bg-accent"></span>
-            </span>
-          </span>
-        </div> -->
       </div>
     </section>
 
@@ -169,12 +153,12 @@
           <a href="#service-01"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80" alt=""
-                class="h-full w-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80"
+                alt="Social media marketing" loading="lazy" decoding="async" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">01</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">01</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Social Media Marketing</h3>
             </div>
           </a>
@@ -182,12 +166,13 @@
           <a href="#service-02"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt=""
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80"
+                alt="Performance marketing dashboards" loading="lazy" decoding="async"
                 class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">02</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">02</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Performance Marketing</h3>
             </div>
           </a>
@@ -195,12 +180,12 @@
           <a href="#service-03"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=900&q=80" alt=""
-                class="h-full w-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=900&q=80"
+                alt="Lead generation analytics" loading="lazy" decoding="async" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">03</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">03</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Lead Generation</h3>
             </div>
           </a>
@@ -208,12 +193,12 @@
           <a href="#service-04"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80" alt=""
-                class="h-full w-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80"
+                alt="Website development code" loading="lazy" decoding="async" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">04</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">04</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Website Development</h3>
             </div>
           </a>
@@ -221,12 +206,12 @@
           <a href="#service-05"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80" alt=""
-                class="h-full w-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80"
+                alt="Brand identity design" loading="lazy" decoding="async" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">05</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">05</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Branding &amp; Identity</h3>
             </div>
           </a>
@@ -234,13 +219,132 @@
           <a href="#service-06"
             class="service-card group relative flex h-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:h-[340px]">
             <div class="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80" alt=""
-                class="h-full w-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80"
+                alt="Influencer marketing creator" loading="lazy" decoding="async" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
             <div class="relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">06</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">06</span>
               <h3 class="mt-2 font-display text-2xl uppercase leading-none md:text-3xl">Influencer Marketing</h3>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ WORK / CASE STUDIES (NEW) ══════════ -->
+    <section id="work" class="border-t border-white/10 px-6 py-20 md:px-10 md:py-28">
+      <div class="mx-auto max-w-[1500px]">
+
+        <div class="mb-10 flex items-end justify-between md:mb-16" data-reveal>
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">(02)</span>
+            <h2 class="mt-3 font-display text-5xl uppercase leading-none md:text-7xl">Selected Work</h2>
+          </div>
+          <span class="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-white/35 md:block">
+            2023 — 2025
+          </span>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+
+          <!-- Case 1 -->
+          <a href="#service-01"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Social Media</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Casa Salon</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                Rebuilt the content engine around short-form video and community-first storytelling.
+              </p>
+
+            </div>
+          </a>
+
+          <!-- Case 2 -->
+          <a href="#service-01"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Social Media</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Grace Coffee Cafe</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                A reel-first content calendar that turned a local cafe into a city-wide destination.
+              </p>
+            </div>
+          </a>
+
+          <!-- Case 3 -->
+          <a href="#service-02"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Performance</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Amber Salon</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                Creative-led paid social with a booking-first funnel across Meta and Google.
+              </p>
+            </div>
+          </a>
+
+          <!-- Case 4 -->
+          <a href="#service-04"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Web Development</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Lavista Estates</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                A property listing site with instant lead capture and a custom CRM backend.
+              </p>
+
+            </div>
+          </a>
+
+          <!-- Case 5 -->
+          <a href="#service-04"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Web Development</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Polycast CRM</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                A full web-app CRM for a manufacturing business — pipeline, quotes and reporting.
+              </p>
+            </div>
+          </a>
+
+          <!-- Case 6 -->
+          <a href="#service-06"
+            class="group flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.04] md:min-h-[320px]">
+            <div class="flex items-start justify-between">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">Influencer</span>
+              <span
+                class="font-mono text-xs text-white/25 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">↗</span>
+            </div>
+            <div class="mt-16">
+              <h3 class="font-display text-2xl uppercase leading-none md:text-3xl">Desi Rituals</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/45">
+                A creator-led UGC push that put the brand in front of a new regional audience.
+              </p>
+
             </div>
           </a>
 
@@ -288,8 +392,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h-full w-full object-cover reel-video " loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/r8.mp4"
                     type="video/mp4">
                 </video>
@@ -320,7 +423,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -338,8 +441,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/r1.mp4"
                     type="video/mp4">
                 </video>
@@ -370,7 +472,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -388,8 +490,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/r3.mp4"
                     type="video/mp4">
                 </video>
@@ -420,7 +521,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -438,8 +539,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/r4.mp4"
                     type="video/mp4">
                 </video>
@@ -470,7 +570,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -491,7 +591,7 @@
           <div class="post-grid grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
 
             <div class="post-card">
-              <img src="./assets/w5.jpeg" alt="">
+              <img src="./assets/w5.jpeg" alt="Social media carousel design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Carousel · 6 slides</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Post Carousel</h4>
@@ -499,7 +599,7 @@
             </div>
 
             <div class="post-card">
-              <img src="./assets/w6.jpeg" alt="">
+              <img src="./assets/w6.jpeg" alt="Static social media post design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Static Post</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Weekly Tips</h4>
@@ -507,7 +607,7 @@
             </div>
 
             <div class="post-card">
-              <img src="./assets/w7.jpeg" alt="">
+              <img src="./assets/w7.jpeg" alt="Instagram story set design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Story Set</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Creative Post</h4>
@@ -559,8 +659,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/A1.mp4"
                     type="video/mp4">
                 </video>
@@ -591,7 +690,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -609,8 +708,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/A2.mp4"
                     type="video/mp4">
                 </video>
@@ -641,7 +739,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -659,8 +757,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/A3.mp4"
                     type="video/mp4">
                 </video>
@@ -691,7 +788,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -712,7 +809,7 @@
           <div class="post-grid grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
 
             <div class="post-card">
-              <img src="./assets/p1 (2).jpeg" alt="">
+              <img src="./assets/p1 (2).jpeg" alt="Amber Salon advertising creative" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Advertise</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Amber Salon</h4>
@@ -720,7 +817,7 @@
             </div>
 
             <div class="post-card">
-              <img src="./assets/p1 (5).jpeg" alt="">
+              <img src="./assets/p1 (5).jpeg" alt="Display network banner set" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Banner Set</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Display Network</h4>
@@ -728,7 +825,7 @@
             </div>
 
             <div class="post-card">
-              <img src="./assets/p1 (3).jpeg" alt="">
+              <img src="./assets/p1 (3).jpeg" alt="Display network banner set" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <span class="font-mono text-[10px] uppercase tracking-widest text-accent">Banner Set</span>
                 <h4 class="mt-2 font-display text-xl uppercase">Display Network</h4>
@@ -779,12 +876,12 @@
               class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                         transition-all duration-500 ease-out
                         hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/L1.png" alt="Lead"
+              <img src="./assets/L1.png" alt="Lead details report" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="11" cy="11" r="7" />
                   <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
@@ -802,12 +899,12 @@
               class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                         transition-all duration-500 ease-out
                         hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/L2.png" alt="Lead Details"
+              <img src="./assets/L2.png" alt="Lead details report" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="11" cy="11" r="7" />
                   <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
@@ -818,19 +915,18 @@
                 Lead Details
               </span>
             </button>
-
             <!-- Card 3 -->
             <button type="button" data-lightbox data-src="./assets/L3.png" data-category="Lead Details"
               data-title="Lead Details"
               class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                         transition-all duration-500 ease-out
                         hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/L3.png" alt="Lead Details"
+              <img src="./assets/L3.png" alt="Lead details report" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="11" cy="11" r="7" />
                   <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
@@ -848,12 +944,12 @@
               class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                         transition-all duration-500 ease-out
                         hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/L4.png" alt="Lead Details"
+              <img src="./assets/L4.png" alt="Lead details report" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="11" cy="11" r="7" />
                   <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
@@ -907,12 +1003,12 @@
             <a href="https://cpplcrm.com/" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                   transition-all duration-500 ease-out
                   hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/w1.png" alt="Polycast CRM"
+              <img src="./assets/w1.png" alt="Polycast CRM website" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <path d="M15 3h6v6M10 14 21 3" />
@@ -928,12 +1024,12 @@
             <a href="https://www.lavistaestates.com/" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                   transition-all duration-500 ease-out
                   hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/w2.png" alt="Lavista E State"
+              <img src="./assets/w2.png" alt="Lavista Estates website" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <path d="M15 3h6v6M10 14 21 3" />
@@ -949,12 +1045,12 @@
             <a href="https://www.lavistamarketingagency.com/" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                   transition-all duration-500 ease-out
                   hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/w3.png" alt="Lavista Marketing"
+              <img src="./assets/w3.png" alt="Lavista Marketing website" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <path d="M15 3h6v6M10 14 21 3" />
@@ -970,12 +1066,12 @@
             <a href="https://property-management-app-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-[#141414]
                   transition-all duration-500 ease-out
                   hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_45px_-20px_rgba(28,88,227,0.55)]">
-              <img src="./assets/w4.png" alt="Real E State CRM"
+              <img src="./assets/w4.png" alt="Real Estate CRM web app" loading="lazy" decoding="async"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
               <span
                 class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span
-                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-30 backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
+                class="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white opacity-0 scale-75 -rotate-[30deg] backdrop-blur transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 group-hover:bg-accent group-hover:border-accent">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <path d="M15 3h6v6M10 14 21 3" />
@@ -1082,28 +1178,28 @@
           <div class="post-grid grid grid-cols-1 gap-3 md:grid-cols-4 md:gap-4">
 
             <div class="post-card">
-              <img src="./assets/p1.jpeg" alt="">
+              <img src="./assets/p1.jpeg" alt="Burger brand identity design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <h4 class="mt-2 font-display text-xl uppercase">Burger</h4>
               </div>
             </div>
 
             <div class="post-card">
-              <img src="./assets/p2.jpeg" alt="">
+              <img src="./assets/p2.jpeg" alt="Pasta brand identity design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <h4 class="mt-2 font-display text-xl uppercase">Pasta</h4>
               </div>
             </div>
 
             <div class="post-card">
-              <img src="./assets/p3.jpeg" alt="">
+              <img src="./assets/p3.jpeg" alt="Sandwiches brand identity design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <h4 class="mt-2 font-display text-xl uppercase">Sand Wiches</h4>
               </div>
             </div>
 
             <div class="post-card">
-              <img src="./assets/p4.jpeg" alt="">
+              <img src="./assets/p4.jpeg" alt="Maggie brand identity design" loading="lazy" decoding="async">
               <div class="post-overlay">
                 <h4 class="mt-2 font-display text-xl uppercase">Maggie</h4>
               </div>
@@ -1132,7 +1228,7 @@
           </div>
           <div class="flex gap-8 md:col-span-2 md:col-start-11">
             <div>
-              <div class="font-display text-3xl leading-none text-accent">42M</div>
+              <div class="font-display text-3xl leading-none text-accent">1M</div>
               <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">Reach</div>
             </div>
           </div>
@@ -1141,11 +1237,10 @@
         <div class="mt-14" data-reveal>
           <div class="mb-8 flex items-center justify-between">
             <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-white/45">→ Creator Collabs</span>
-            <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-white/30">03 pieces</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-white/30">04 pieces</span>
           </div>
 
-          <div class="grid grid-cols-1 gap-2 md:grid-cols-4
-             md:gap-2">
+          <div class="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-2">
 
             <!-- Collab 1 -->
             <div class="reel-card group relative mx-auto w-full max-w-[240px] md:max-w-[280px]">
@@ -1155,8 +1250,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/S1.mp4"
                     type="video/mp4">
                 </video>
@@ -1187,7 +1281,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -1205,8 +1299,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/S2.mp4"
                     type="video/mp4">
                 </video>
@@ -1237,7 +1330,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -1255,8 +1348,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/s3.mp4"
                     type="video/mp4">
                 </video>
@@ -1287,7 +1379,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -1297,7 +1389,7 @@
               </div>
             </div>
 
-
+            <!-- Collab 4 -->
             <div class="reel-card group relative mx-auto w-full max-w-[240px] md:max-w-[280px]">
               <div
                 class="relative aspect-[9/16] w-full overflow-hidden rounded-[32px] border-[6px] border-neutral-800 bg-black shadow-2xl md:rounded-[40px] md:border-[8px]">
@@ -1305,8 +1397,7 @@
                   class="absolute left-1/2 top-0 z-20 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-neutral-800 md:h-5 md:w-24">
                 </div>
 
-                <video class="reel-video h- reel-video f ull w-full object-cover" loop muted playsinline
-                  webkit-playsinline loop preload="metadata">
+                <video class="reel-video h-full w-full object-cover" loop muted playsinline preload="metadata">
                   <source src="https://qofjeukekthtxrkbpasd.supabase.co/storage/v1/object/public/portfolio-reels/s4.mp4"
                     type="video/mp4">
                 </video>
@@ -1337,7 +1428,7 @@
                 </button>
 
                 <div class="absolute bottom-5 left-4 right-4 z-30 h-1 overflow-hidden rounded-full bg-white/25">
-                  <div class="progress-bar h-full w-0 rounded-full bg-white"></div>
+                  <div class="reel-progress h-full w-0 rounded-full bg-white"></div>
                 </div>
 
                 <span
@@ -1356,7 +1447,7 @@
     <section id="about" class="border-t border-white/10 px-6 py-24 md:px-10 md:py-36">
       <div class="mx-auto grid max-w-[1500px] gap-12 md:grid-cols-12 md:gap-16">
         <div class="md:col-span-5" data-reveal>
-          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">(02)</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">(03)</span>
           <h2 class="mt-4 font-display text-4xl uppercase leading-[0.95] md:text-5xl">
             A full-stack<br />creative partner.
           </h2>
@@ -1417,7 +1508,7 @@
     <section id="contact" class="border-t border-white/10 px-6 py-24 md:px-10 md:py-36">
       <div class="mx-auto max-w-[1500px]">
         <div class="mb-10" data-reveal>
-          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">(03)</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">(05)</span>
         </div>
 
         <h2 class="font-display text-[clamp(2.8rem,11vw,10rem)] uppercase leading-[1.05]" data-reveal>
@@ -1426,7 +1517,7 @@
 
         <div class="mt-12 flex flex-col items-start gap-10 md:mt-16 md:flex-row md:items-center md:justify-between"
           data-reveal>
-          <a href="tel:+91 93287 92160" data-magnetic
+          <a href="tel:+919328792160" data-magnetic
             class="group inline-flex items-center gap-4 rounded-full border border-white/15 px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-500 hover:border-accent hover:bg-accent hover:text-white">
             +91 93287 92160
             <span
